@@ -227,7 +227,7 @@ function Editor() {
             </TabsContent>
             <TabsContent value="preview">
               <div
-                className="prose prose-slate min-h-[400px] max-w-none rounded-md border border-border/60 bg-card p-6 dark:prose-invert"
+                className="markdown-body min-h-[400px] rounded-md border border-border/60 bg-card p-6"
                 dangerouslySetInnerHTML={{ __html: renderMarkdown(draft.content || "*Nothing yet*") }}
               />
             </TabsContent>

@@ -103,7 +103,7 @@ function ArticleView() {
               </div>
             </div>
             <div
-              className="prose prose-slate mt-8 max-w-none dark:prose-invert prose-pre:rounded-md prose-pre:bg-muted prose-code:text-primary prose-headings:tracking-tight"
+              className="markdown-body mt-8"
               dangerouslySetInnerHTML={{ __html: renderMarkdown(data.content || "") }}
             />
           </>
