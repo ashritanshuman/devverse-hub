@@ -30,7 +30,7 @@ function Home() {
       const { data, error } = await supabase
         .from("articles")
         .select(
-          "id, slug, title, excerpt, cover_image_url, tags, reading_time_minutes, published_at, author:profiles!articles_author_id_fkey(username, display_name, avatar_url)",
+          "id, slug, title, excerpt, cover_image_url, tags, reading_time_minutes, published_at, author:profiles!articles_author_profile_fkey(username, display_name, avatar_url)",
         )
         .eq("published", true)
         .order("published_at", { ascending: false })

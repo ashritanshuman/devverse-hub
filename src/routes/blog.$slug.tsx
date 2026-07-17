@@ -32,14 +32,24 @@ function ArticleView() {
       const { data, error } = await supabase
         .from("articles")
         .select(
-          "id, title, content, excerpt, cover_image_url, tags, reading_time_minutes, published_at, author:profiles!articles_author_id_fkey(username, display_name, avatar_url, bio)",
+          "id, title, content, excerpt, cover_image_url, tags, reading_time_minutes, published_at, author:profiles!articles_author_profile_fkey(username, display_name, avatar_url, bio)",
         )
         .eq("slug", slug)
         .eq("published", true)
         .maybeSingle();
       if (error) throw error;
       if (!data) throw notFound();
-      return data;
+      return data as unknown as {
+        id: string;
+        title: string;
+        content: string;
+        excerpt: string | null;
+        cover_image_url: string | null;
+        tags: string[];
+        reading_time_minutes: number;
+        published_at: string | null;
+        author: { username: string; display_name: string | null; avatar_url: string | null; bio: string | null } | null;
+      };
     },
   });
 
