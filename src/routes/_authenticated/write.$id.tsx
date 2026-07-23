@@ -151,6 +151,11 @@ function Editor() {
             {isNew ? "New article" : draft.published ? "Edit published" : "Edit draft"}
           </h1>
           <div className="flex flex-wrap gap-2">
+            <GitHubImportDialog
+              onImport={(data: GitHubImport) =>
+                setDraft((d) => ({ ...d, ...data }))
+              }
+            />
             {draft.published ? (
               <Button variant="outline" onClick={() => save(false)} disabled={saving}>
                 <Undo2 className="mr-2 h-4 w-4" /> Unpublish
