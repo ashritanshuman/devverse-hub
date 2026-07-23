@@ -10,6 +10,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { renderMarkdown, estimateReadingTime, slugify } from "@/lib/markdown";
 import { Trash2, Save, Send, Undo2 } from "lucide-react";
+import { GitHubImportDialog, type GitHubImport } from "@/components/github-import-dialog";
 
 export const Route = createFileRoute("/_authenticated/write/$id")({
   component: Editor,
